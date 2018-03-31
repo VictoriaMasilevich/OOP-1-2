@@ -22,7 +22,7 @@ namespace Geometry
 
         public override void Draw(PaintEventArgs e)
         {
-            Pen myPen = new Pen(Color.Red);
+            Pen myPen = new Pen(Color.Red, 3.0F);
             e.Graphics.DrawLine(myPen, x1, y1, x2, y2);
         }
     }

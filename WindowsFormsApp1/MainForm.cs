@@ -15,16 +15,19 @@ namespace Geometry
         public MainForm()
         {
             InitializeComponent();
-            MainForm_Window();
         }
 
-        private void MainForm_Window()
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            PictureBox pct = new PictureBox();
-            pct.Height = 300;
-            pct.Width = 600;
-            pct.BackColor = Color.White;
-            Controls.Add(pct);
+
+        }
+
+        private void MainForm_Draw(object sender, PaintEventArgs e)
+        {
+            Line line = new Line(100, 100, 200, 200);
+            ObjectsList objectsList = new ObjectsList();
+            objectsList.Add(line);
+            objectsList.Draw(e);
         }
     }
 }
