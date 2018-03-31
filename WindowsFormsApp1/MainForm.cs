@@ -15,7 +15,6 @@ namespace Geometry
         public MainForm()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
             MainForm_Window();
         }
 
@@ -27,6 +26,5 @@ namespace Geometry
             pct.BackColor = Color.White;
             Controls.Add(pct);
         }
-
     }
 }
