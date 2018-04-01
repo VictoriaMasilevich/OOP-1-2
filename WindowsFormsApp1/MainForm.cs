@@ -25,8 +25,12 @@ namespace Geometry
         private void MainForm_Draw(object sender, PaintEventArgs e)
         {
             Line line = new Line(100, 100, 200, 200);
+            Rectangle rectangle = new Rectangle(250, 250, 200, 100);
+            Square square = new Square(100, 250, 60);
             ObjectsList objectsList = new ObjectsList();
             objectsList.Add(line);
+            objectsList.Add(rectangle);
+            objectsList.Add(square);
             objectsList.Draw(e);
         }
     }
