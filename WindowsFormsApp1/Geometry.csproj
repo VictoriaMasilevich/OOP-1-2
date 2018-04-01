@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Circle.cs" />
+    <Compile Include="Curve.cs" />
+    <Compile Include="Ellipse.cs" />
     <Compile Include="MyDraw.cs" />
     <Compile Include="Line.cs" />
     <Compile Include="MainForm.cs">

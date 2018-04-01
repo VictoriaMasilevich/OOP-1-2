@@ -23,7 +23,7 @@ namespace Geometry
 
         public override void Draw(PaintEventArgs e)
         {
-            Pen myPen = new Pen(Color.Blue, 3.0F);
+            Pen myPen = new Pen(Color.Coral, 3.0F);
             e.Graphics.DrawRectangle(myPen, x, y, sidelength, sidelength);
         }
     }

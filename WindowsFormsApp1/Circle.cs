@@ -8,22 +8,21 @@ using System.Windows.Forms;
 
 namespace Geometry
 {
-    class Rectangle : MyDraw
+    class Circle : MyDraw
     {
-        private int x, y, width, height;
+        private int x, y, radius;
 
-        public Rectangle(int x, int y, int width, int height)
+        public Circle(int x, int y, int radius)
         {
             this.x = x;
             this.y = y;
-            this.width = width;
-            this.height = height;
+            this.radius = radius;
         }
 
         public override void Draw(PaintEventArgs e)
         {
-            SolidBrush Brush = new SolidBrush(Color.SkyBlue);
-            e.Graphics.FillRectangle(Brush, x, y, width, height);
+            SolidBrush Brush = new SolidBrush(Color.Yellow);
+            e.Graphics.FillEllipse(Brush, x, y, radius, radius);
         }
     }
 }
