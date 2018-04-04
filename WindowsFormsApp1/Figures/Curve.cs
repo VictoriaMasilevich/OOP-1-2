@@ -12,15 +12,14 @@ namespace Geometry
     {
         private Point[] curvePoints;
 
-        public Curve(Point[] curvePoints)
+        public Curve(float fatness, Color color, Point[] curvePoints) : base(fatness, color)
         {
             this.curvePoints = curvePoints;
         }
 
         public override void Draw(Graphics graphics)
         {
-            Pen myPen = new Pen(Color.Orange, 3.0F);
-            graphics.DrawCurve(myPen, curvePoints);
+            graphics.DrawCurve(pen, curvePoints);
         }
     }
 }

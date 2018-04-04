@@ -10,6 +10,17 @@ namespace Geometry
 {
     abstract class MyDraw
     {
+        public Color color;
+        public float fatness;
+        protected Pen pen;
+
+        public MyDraw(float fatness, Color color)
+        {
+            this.fatness = fatness;
+            this.color = color;
+            pen = new Pen(color, fatness);
+        }
+
         public abstract void Draw(Graphics graphics);
     }
 }

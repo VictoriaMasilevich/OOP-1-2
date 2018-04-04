@@ -10,20 +10,17 @@ namespace Geometry
 {
     class Rectangle : MyDraw
     {
-        private int x, y, width, height;
+        private Point topLeft, bottomRight;
 
-        public Rectangle(int x, int y, int width, int height)
+        public Rectangle(float fatness, Color color, Point topLeft, Point bottomRight) : base(fatness, color)
         {
-            this.x = x;
-            this.y = y;
-            this.width = width;
-            this.height = height;
+            this.topLeft = topLeft;
+            this.bottomRight = bottomRight;
         }
 
         public override void Draw(Graphics graphics)
         {
-            SolidBrush Brush = new SolidBrush(Color.SkyBlue);
-            graphics.FillRectangle(Brush, x, y, width, height);
+            graphics.DrawRectangle(pen, topLeft.X, topLeft.Y, bottomRight.X - topLeft.X, bottomRight.Y - topLeft.Y);
         }
     }
 }

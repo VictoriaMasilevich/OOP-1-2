@@ -12,19 +12,17 @@ namespace Geometry
 {
     class Square : MyDraw
     {
-        private int x, y, sidelength;
-
-        public Square (int x, int y, int sidelength)
+        private Point topLeft;
+        private int sidelength;
+        public Square (float fatness, Color color, Point topLeft, Point bottomRight) : base(fatness, color)
         {
-            this.x = x;
-            this.y = y;
-            this.sidelength = sidelength;
+            this.topLeft = topLeft;
+            this.sidelength = bottomRight.X - topLeft.X;
         }
 
         public override void Draw(Graphics graphics)
         {
-            Pen myPen = new Pen(Color.Coral, 3.0F);
-            graphics.DrawRectangle(myPen, x, y, sidelength, sidelength);
+            graphics.DrawRectangle(pen, topLeft.X, topLeft.Y, sidelength, sidelength);
         }
     }
 }

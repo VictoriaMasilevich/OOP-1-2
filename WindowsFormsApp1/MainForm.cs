@@ -14,22 +14,22 @@ namespace Geometry
     {
         public Bitmap bmap;
         public Graphics graphics;
+        private MyDraw mydraw;
+        private Fabric maker;
         public MainForm()
         {
             InitializeComponent();
-            bmap = new Bitmap(pictrueDrawing.Size.Width, pictrueDrawing.Size.Height);
+            bmap = new Bitmap(PictrueBox.Size.Width, PictrueBox.Size.Height);
             graphics = Graphics.FromImage(bmap);
         }
 
-        private void drawButton_Click(object sender, EventArgs e)
+        private void DrawAllButton_Click(object sender, EventArgs e)
         {
-            Line line1 = new Line(200, 150, 300, 50);
-            Line line2 = new Line(300, 50, 400, 150);
-            Rectangle rectangle = new Rectangle(260, 250, 80, 90);
-            Square square = new Square(200, 150, 200);
-            Circle circle = new Circle(520, 10, 70);
-            Ellipse ellipse = new Ellipse(315, 300, 15, 5);
-
+            Circle circle = new Circle(2, Color.Aqua, new Point(10, 10), new Point(70, 70));
+            Ellipse ellipse = new Ellipse(2, Color.Pink, new Point(10, 80), new Point(140, 150));
+            Line line = new Line(2, Color.Lime, new Point(10, 170), new Point(120, 190));
+            Square square = new Square(2, Color.LightSeaGreen, new Point(10, 210), new Point(90, 90));
+            Rectangle rectangle = new Rectangle(2, Color.Orange, new Point(10, 310), new Point(250, 390));
             Point point1 = new Point(470, -2);
             Point point2 = new Point(500, 30);
             Point point3 = new Point(450, 45);
@@ -40,19 +40,82 @@ namespace Geometry
             Point point8 = new Point(570, 100);
             Point point9 = new Point(600, 140);
             Point[] curvePoints1 = { point1, point2, point3, point4, point5, point6, point7, point8, point9 };
-
-            Curve curve1 = new Curve(curvePoints1);
-
+            Curve curve1 = new Curve(2, Color.Black, curvePoints1);
             ObjectsList objectsList = new ObjectsList();
-            objectsList.Add(line1);
-            objectsList.Add(line2);
+            objectsList.Add(line);
             objectsList.Add(square);
             objectsList.Add(rectangle);
             objectsList.Add(circle);
             objectsList.Add(ellipse);
             objectsList.Add(curve1);
             objectsList.Draw(graphics);
-            pictrueDrawing.Image = bmap;
+            PictrueBox.Image = bmap;
+        }
+
+        private void ClearAllButton_Click(object sender, EventArgs e)
+        {
+            graphics.Clear(Color.White);
+            PictrueBox.Image = bmap;
+        }
+
+        private bool IsInt(string x1, string y1, string x2, string y2)
+        {
+            int res = 0;
+            if (Int32.TryParse(x1, out res) && Int32.TryParse(y1, out res) && Int32.TryParse(x2, out res) && Int32.TryParse(y2, out res))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private void DrawButton_Click(object sender, EventArgs e)
+        {
+            if (maker != null)
+            {
+                if (IsInt(tb_x1.Text, tb_y1.Text, tb_x2.Text, tb_y2.Text))
+                {
+                    mydraw = maker.FactoryMethod(2, Color.MediumAquamarine,
+                                    new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text, 10)),
+                                    new Point(Convert.ToInt32(tb_x2.Text, 10), Convert.ToInt32(tb_y2.Text, 10)));
+                    mydraw.Draw(graphics);
+
+
+                    PictrueBox.Image = bmap;
+                }
+                else
+                {
+                    MessageBox.Show("Введены некорректные координаты!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Выберите фигуру!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void rb_square_CheckedChanged(object sender, EventArgs e)
+        {
+            maker = new SquareFabric();
+        }
+
+        private void rb_reactangle_CheckedChanged(object sender, EventArgs e)
+        {
+            maker = new RectangleFabric();
+        }
+
+        private void rb_ellipse_CheckedChanged(object sender, EventArgs e)
+        {
+            maker = new EllipseFabric();
+        }
+
+        private void rb_circle_CheckedChanged(object sender, EventArgs e)
+        {
+            maker = new CircleFabric();
+        }
+
+        private void rb_line_CheckedChanged(object sender, EventArgs e)
+        {
+            maker = new LineFabric();
         }
     }
 }

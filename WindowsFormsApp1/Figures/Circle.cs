@@ -10,19 +10,18 @@ namespace Geometry
 {
     class Circle : MyDraw
     {
-        private int x, y, radius;
+        private int radius;
+        private Point topLeft;
 
-        public Circle(int x, int y, int radius)
+        public Circle(float fatness, Color color, Point topLeft, Point bottomRight) : base(fatness, color)
         {
-            this.x = x;
-            this.y = y;
-            this.radius = radius;
+            this.topLeft = topLeft;
+            radius = bottomRight.X - topLeft.X;
         }
 
         public override void Draw(Graphics graphics)
         {
-            SolidBrush Brush = new SolidBrush(Color.Yellow);
-            graphics.FillEllipse(Brush, x, y, radius, radius);
+            graphics.DrawEllipse(pen, topLeft.X, topLeft.Y, radius, radius);
         }
     }
 }
