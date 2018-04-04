@@ -46,6 +46,8 @@
             this.lbl_for_y1 = new System.Windows.Forms.Label();
             this.lbl_for_x2 = new System.Windows.Forms.Label();
             this.lbl_for_y2 = new System.Windows.Forms.Label();
+            this.listbx = new System.Windows.Forms.ListBox();
+            this.help = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PictrueBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,7 +104,7 @@
             // 
             this.rb_square.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rb_square.ForeColor = System.Drawing.Color.Indigo;
-            this.rb_square.Location = new System.Drawing.Point(12, 536);
+            this.rb_square.Location = new System.Drawing.Point(12, 523);
             this.rb_square.Name = "rb_square";
             this.rb_square.Size = new System.Drawing.Size(104, 24);
             this.rb_square.TabIndex = 7;
@@ -113,7 +115,7 @@
             // 
             this.rb_reactangle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rb_reactangle.ForeColor = System.Drawing.Color.Indigo;
-            this.rb_reactangle.Location = new System.Drawing.Point(122, 510);
+            this.rb_reactangle.Location = new System.Drawing.Point(122, 497);
             this.rb_reactangle.Name = "rb_reactangle";
             this.rb_reactangle.Size = new System.Drawing.Size(123, 24);
             this.rb_reactangle.TabIndex = 6;
@@ -124,7 +126,7 @@
             // 
             this.rb_ellipse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rb_ellipse.ForeColor = System.Drawing.Color.Indigo;
-            this.rb_ellipse.Location = new System.Drawing.Point(12, 562);
+            this.rb_ellipse.Location = new System.Drawing.Point(12, 549);
             this.rb_ellipse.Name = "rb_ellipse";
             this.rb_ellipse.Size = new System.Drawing.Size(104, 24);
             this.rb_ellipse.TabIndex = 5;
@@ -135,7 +137,7 @@
             // 
             this.rb_circle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rb_circle.ForeColor = System.Drawing.Color.Indigo;
-            this.rb_circle.Location = new System.Drawing.Point(122, 537);
+            this.rb_circle.Location = new System.Drawing.Point(122, 524);
             this.rb_circle.Name = "rb_circle";
             this.rb_circle.Size = new System.Drawing.Size(104, 24);
             this.rb_circle.TabIndex = 4;
@@ -146,7 +148,7 @@
             // 
             this.rb_line.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.rb_line.ForeColor = System.Drawing.Color.Indigo;
-            this.rb_line.Location = new System.Drawing.Point(12, 510);
+            this.rb_line.Location = new System.Drawing.Point(12, 497);
             this.rb_line.Name = "rb_line";
             this.rb_line.Size = new System.Drawing.Size(104, 24);
             this.rb_line.TabIndex = 8;
@@ -156,37 +158,41 @@
             // 
             // tb_x1
             // 
-            this.tb_x1.Location = new System.Drawing.Point(358, 540);
+            this.tb_x1.Location = new System.Drawing.Point(355, 496);
             this.tb_x1.Name = "tb_x1";
             this.tb_x1.Size = new System.Drawing.Size(100, 20);
             this.tb_x1.TabIndex = 8;
+            this.tb_x1.Text = "20";
             // 
             // tb_y1
             // 
-            this.tb_y1.Location = new System.Drawing.Point(358, 566);
+            this.tb_y1.Location = new System.Drawing.Point(355, 522);
             this.tb_y1.Name = "tb_y1";
             this.tb_y1.Size = new System.Drawing.Size(100, 20);
             this.tb_y1.TabIndex = 9;
+            this.tb_y1.Text = "20";
             // 
             // tb_x2
             // 
-            this.tb_x2.Location = new System.Drawing.Point(512, 540);
+            this.tb_x2.Location = new System.Drawing.Point(509, 496);
             this.tb_x2.Name = "tb_x2";
             this.tb_x2.Size = new System.Drawing.Size(100, 20);
             this.tb_x2.TabIndex = 10;
+            this.tb_x2.Text = "50";
             // 
             // tb_y2
             // 
-            this.tb_y2.Location = new System.Drawing.Point(512, 567);
+            this.tb_y2.Location = new System.Drawing.Point(509, 523);
             this.tb_y2.Name = "tb_y2";
             this.tb_y2.Size = new System.Drawing.Size(100, 20);
             this.tb_y2.TabIndex = 11;
+            this.tb_y2.Text = "50";
             // 
             // lbl_for_x1
             // 
             this.lbl_for_x1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl_for_x1.ForeColor = System.Drawing.Color.RosyBrown;
-            this.lbl_for_x1.Location = new System.Drawing.Point(335, 540);
+            this.lbl_for_x1.Location = new System.Drawing.Point(332, 496);
             this.lbl_for_x1.Name = "lbl_for_x1";
             this.lbl_for_x1.Size = new System.Drawing.Size(100, 23);
             this.lbl_for_x1.TabIndex = 12;
@@ -196,7 +202,7 @@
             // 
             this.lbl_for_y1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl_for_y1.ForeColor = System.Drawing.Color.RosyBrown;
-            this.lbl_for_y1.Location = new System.Drawing.Point(334, 567);
+            this.lbl_for_y1.Location = new System.Drawing.Point(331, 523);
             this.lbl_for_y1.Name = "lbl_for_y1";
             this.lbl_for_y1.Size = new System.Drawing.Size(100, 23);
             this.lbl_for_y1.TabIndex = 13;
@@ -206,7 +212,7 @@
             // 
             this.lbl_for_x2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl_for_x2.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.lbl_for_x2.Location = new System.Drawing.Point(487, 541);
+            this.lbl_for_x2.Location = new System.Drawing.Point(484, 497);
             this.lbl_for_x2.Name = "lbl_for_x2";
             this.lbl_for_x2.Size = new System.Drawing.Size(100, 23);
             this.lbl_for_x2.TabIndex = 14;
@@ -216,16 +222,44 @@
             // 
             this.lbl_for_y2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbl_for_y2.ForeColor = System.Drawing.Color.LightSeaGreen;
-            this.lbl_for_y2.Location = new System.Drawing.Point(486, 568);
+            this.lbl_for_y2.Location = new System.Drawing.Point(483, 524);
             this.lbl_for_y2.Name = "lbl_for_y2";
             this.lbl_for_y2.Size = new System.Drawing.Size(101, 17);
             this.lbl_for_y2.TabIndex = 15;
             this.lbl_for_y2.Text = "Y2";
             // 
+            // listbx
+            // 
+            this.listbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listbx.ForeColor = System.Drawing.Color.Indigo;
+            this.listbx.ItemHeight = 16;
+            this.listbx.Items.AddRange(new object[] {
+            "Black",
+            "Red",
+            "Blue",
+            "Green",
+            "Orange",
+            "Yellow",
+            "Brown",
+            "Pink"});
+            this.listbx.Location = new System.Drawing.Point(251, 497);
+            this.listbx.Name = "listbx";
+            this.listbx.Size = new System.Drawing.Size(59, 132);
+            this.listbx.TabIndex = 16;
+            this.listbx.SelectedIndexChanged += new System.EventHandler(this.listbx_SelectedIndexChanged);
+            // 
+            // help
+            // 
+            this.help.Location = new System.Drawing.Point(352, 606);
+            this.help.Name = "help";
+            this.help.Size = new System.Drawing.Size(240, 23);
+            this.help.TabIndex = 17;
+            this.help.Text = "X2-X1 is side for square and diam for circle";
+            // 
             // MainForm
             // 
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(624, 607);
+            this.ClientSize = new System.Drawing.Size(624, 638);
             this.Controls.Add(this.DrawAllButton);
             this.Controls.Add(this.PictrueBox);
             this.Controls.Add(this.ClearAllButton);
@@ -243,6 +277,8 @@
             this.Controls.Add(this.lbl_for_y1);
             this.Controls.Add(this.lbl_for_x2);
             this.Controls.Add(this.lbl_for_y2);
+            this.Controls.Add(this.listbx);
+            this.Controls.Add(this.help);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -276,6 +312,8 @@
         private System.Windows.Forms.Label lbl_for_y1;
         private System.Windows.Forms.Label lbl_for_x2;
         private System.Windows.Forms.Label lbl_for_y2;
+        private System.Windows.Forms.Label help;
+        private System.Windows.Forms.ListBox listbx;
     }
 }
 

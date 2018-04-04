@@ -16,6 +16,8 @@ namespace Geometry
         public Graphics graphics;
         private MyDraw mydraw;
         private Fabric maker;
+        string selectedColor;
+
         public MainForm()
         {
             InitializeComponent();
@@ -72,9 +74,13 @@ namespace Geometry
         {
             if (maker != null)
             {
+                if (selectedColor == null)
+                {
+                    selectedColor = "black";
+                }
                 if (IsInt(tb_x1.Text, tb_y1.Text, tb_x2.Text, tb_y2.Text))
                 {
-                    mydraw = maker.FactoryMethod(2, Color.MediumAquamarine,
+                    mydraw = maker.FactoryMethod(2, Color.FromName(selectedColor),
                                     new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text, 10)),
                                     new Point(Convert.ToInt32(tb_x2.Text, 10), Convert.ToInt32(tb_y2.Text, 10)));
                     mydraw.Draw(graphics);
@@ -116,6 +122,11 @@ namespace Geometry
         private void rb_line_CheckedChanged(object sender, EventArgs e)
         {
             maker = new LineFabric();
+        }
+
+        private void listbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.selectedColor = listbx.SelectedItem.ToString();
         }
     }
 }
