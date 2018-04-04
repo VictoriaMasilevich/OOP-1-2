@@ -20,10 +20,10 @@ namespace Geometry
             this.height = height;
         }
 
-        public override void Draw(PaintEventArgs e)
+        public override void Draw(Graphics graphics)
         {
             SolidBrush Brush = new SolidBrush(Color.SkyBlue);
-            e.Graphics.FillRectangle(Brush, x, y, width, height);
+            graphics.FillRectangle(Brush, x, y, width, height);
         }
     }
 }

@@ -20,10 +20,10 @@ namespace Geometry
             this.y2 = y2;
         }
 
-        public override void Draw(PaintEventArgs e)
+        public override void Draw(Graphics graphics)
         {
             Pen myPen = new Pen(Color.Red, 3.0F);
-            e.Graphics.DrawLine(myPen, x1, y1, x2, y2);
+            graphics.DrawLine(myPen, x1, y1, x2, y2);
         }
     }
 }

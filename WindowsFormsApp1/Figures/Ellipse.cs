@@ -20,10 +20,10 @@ namespace Geometry
             this.y2 = y2;
         }
 
-        public override void Draw(PaintEventArgs e)
+        public override void Draw(Graphics graphics)
         {
             SolidBrush Brush = new SolidBrush(Color.AliceBlue);
-            e.Graphics.FillEllipse(Brush, x1, y1, x2, y2);
+            graphics.FillEllipse(Brush, x1, y1, x2, y2);
         }
     }
 }

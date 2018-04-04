@@ -19,10 +19,10 @@ namespace Geometry
             this.radius = radius;
         }
 
-        public override void Draw(PaintEventArgs e)
+        public override void Draw(Graphics graphics)
         {
             SolidBrush Brush = new SolidBrush(Color.Yellow);
-            e.Graphics.FillEllipse(Brush, x, y, radius, radius);
+            graphics.FillEllipse(Brush, x, y, radius, radius);
         }
     }
 }

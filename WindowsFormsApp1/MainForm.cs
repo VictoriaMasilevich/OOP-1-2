@@ -12,17 +12,16 @@ namespace Geometry
 {
     public partial class MainForm : Form
     {
+        public Bitmap bmap;
+        public Graphics graphics;
         public MainForm()
         {
             InitializeComponent();
+            bmap = new Bitmap(pictrueDrawing.Size.Width, pictrueDrawing.Size.Height);
+            graphics = Graphics.FromImage(bmap);
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void MainForm_Draw(object sender, PaintEventArgs e)
+        private void drawButton_Click(object sender, EventArgs e)
         {
             Line line1 = new Line(200, 150, 300, 50);
             Line line2 = new Line(300, 50, 400, 150);
@@ -43,7 +42,7 @@ namespace Geometry
             Point[] curvePoints1 = { point1, point2, point3, point4, point5, point6, point7, point8, point9 };
 
             Curve curve1 = new Curve(curvePoints1);
-          
+
             ObjectsList objectsList = new ObjectsList();
             objectsList.Add(line1);
             objectsList.Add(line2);
@@ -52,7 +51,8 @@ namespace Geometry
             objectsList.Add(circle);
             objectsList.Add(ellipse);
             objectsList.Add(curve1);
-            objectsList.Draw(e);
+            objectsList.Draw(graphics);
+            pictrueDrawing.Image = bmap;
         }
     }
 }

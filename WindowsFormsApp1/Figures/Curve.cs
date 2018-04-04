@@ -17,10 +17,10 @@ namespace Geometry
             this.curvePoints = curvePoints;
         }
 
-        public override void Draw(PaintEventArgs e)
+        public override void Draw(Graphics graphics)
         {
-            Pen myPen = new Pen(Color.Yellow, 3.0F);
-            e.Graphics.DrawCurve(myPen, curvePoints);
+            Pen myPen = new Pen(Color.Orange, 3.0F);
+            graphics.DrawCurve(myPen, curvePoints);
         }
     }
 }

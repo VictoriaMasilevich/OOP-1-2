@@ -21,10 +21,10 @@ namespace Geometry
             this.sidelength = sidelength;
         }
 
-        public override void Draw(PaintEventArgs e)
+        public override void Draw(Graphics graphics)
         {
             Pen myPen = new Pen(Color.Coral, 3.0F);
-            e.Graphics.DrawRectangle(myPen, x, y, sidelength, sidelength);
+            graphics.DrawRectangle(myPen, x, y, sidelength, sidelength);
         }
     }
 }

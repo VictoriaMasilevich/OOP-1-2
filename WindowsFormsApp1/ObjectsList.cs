@@ -19,11 +19,11 @@ namespace Geometry
         {
             myList.Add(myDraw);
         }
-        public void Draw(PaintEventArgs e)
+        public void Draw(Graphics graphics)
         {
             foreach (MyDraw myDraw in myList)
             {
-                myDraw.Draw(e);
+                myDraw.Draw(graphics);
             }
         }
     }

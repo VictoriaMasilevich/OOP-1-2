@@ -10,6 +10,6 @@ namespace Geometry
 {
     abstract class MyDraw
     {
-        public abstract void Draw(PaintEventArgs e);
+        public abstract void Draw(Graphics graphics);
     }
 }
