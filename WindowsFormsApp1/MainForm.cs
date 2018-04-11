@@ -14,119 +14,144 @@ namespace Geometry
     {
         public Bitmap bmap;
         public Graphics graphics;
-        private MyDraw mydraw;
-        private Fabric maker;
+        private Fabric figureCreator;
         string selectedColor;
 
         public MainForm()
         {
             InitializeComponent();
-            bmap = new Bitmap(PictrueBox.Size.Width, PictrueBox.Size.Height);
+            bmap = new Bitmap(PictureBox.Size.Width, PictureBox.Size.Height);
             graphics = Graphics.FromImage(bmap);
         }
 
         private void DrawAllButton_Click(object sender, EventArgs e)
         {
-            Circle circle = new Circle(2, Color.Aqua, new Point(10, 10), new Point(70, 70));
-            Ellipse ellipse = new Ellipse(2, Color.Pink, new Point(10, 80), new Point(140, 150));
-            Line line = new Line(2, Color.Lime, new Point(10, 170), new Point(120, 190));
-            Square square = new Square(2, Color.LightSeaGreen, new Point(10, 210), new Point(90, 90));
-            Rectangle rectangle = new Rectangle(2, Color.Orange, new Point(10, 310), new Point(250, 390));
-            Point point1 = new Point(470, -2);
-            Point point2 = new Point(500, 30);
-            Point point3 = new Point(450, 45);
-            Point point4 = new Point(510, 70);
-            Point point5 = new Point(470, 110);
-            Point point6 = new Point(530, 100);
-            Point point7 = new Point(550, 150);
-            Point point8 = new Point(570, 100);
-            Point point9 = new Point(600, 140);
-            Point[] curvePoints1 = { point1, point2, point3, point4, point5, point6, point7, point8, point9 };
-            Curve curve1 = new Curve(2, Color.Black, curvePoints1);
+            Circle circle = new Circle();
+            Ellipse ellipse = new Ellipse();
+            Line line = new Line();
+            Square square = new Square();
+            Rectangle rectangle = new Rectangle();
             ObjectsList objectsList = new ObjectsList();
-            objectsList.Add(line);
-            objectsList.Add(square);
-            objectsList.Add(rectangle);
-            objectsList.Add(circle);
-            objectsList.Add(ellipse);
-            objectsList.Add(curve1);
+            objectsList.myList.Add(line);
+            objectsList.myList.Add(square);
+            objectsList.myList.Add(rectangle);
+            objectsList.myList.Add(circle);
+            objectsList.myList.Add(ellipse);
             objectsList.Draw(graphics);
-            PictrueBox.Image = bmap;
+            PictureBox.Image = bmap;
         }
 
-        private void ClearAllButton_Click(object sender, EventArgs e)
+        ObjectsList objectsList = new ObjectsList();
+
+        Color penColor = Color.RosyBrown;
+        Pen pen = new Pen(Color.RosyBrown, 2);
+
+        public bool isClicked = false;
+
+        public struct MenuItemInfo
         {
-            graphics.Clear(Color.White);
-            PictrueBox.Image = bmap;
+            public string figureName;
+            public string creatorType;
+            public Fabric FigureCreator;
         }
 
-        private bool IsInt(string x1, string y1, string x2, string y2)
+        Point X;
+        Point Y;
+        Figure figure;
+
+        private void PictureBox_MouseDown(object sender, MouseEventArgs e)
         {
-            int res = 0;
-            if (Int32.TryParse(x1, out res) && Int32.TryParse(y1, out res) && Int32.TryParse(x2, out res) && Int32.TryParse(y2, out res))
+            if (figureCreator != null)
             {
-                return true;
-            }
-            return false;
-        }
-
-        private void DrawButton_Click(object sender, EventArgs e)
-        {
-            if (maker != null)
-            {
+                figure = figureCreator.Create();
                 if (selectedColor == null)
                 {
-                    selectedColor = "black";
+                    selectedColor = "Gray";
                 }
-                if (IsInt(tb_x1.Text, tb_y1.Text, tb_x2.Text, tb_y2.Text))
-                {
-                    mydraw = maker.FactoryMethod(2, Color.FromName(selectedColor),
-                                    new Point(Convert.ToInt32(tb_x1.Text, 10), Convert.ToInt32(tb_y1.Text, 10)),
-                                    new Point(Convert.ToInt32(tb_x2.Text, 10), Convert.ToInt32(tb_y2.Text, 10)));
-                    mydraw.Draw(graphics);
-
-
-                    PictrueBox.Image = bmap;
-                }
-                else
-                {
-                    MessageBox.Show("Введены некорректные координаты!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                penColor = Color.FromName(selectedColor);
+                pen = new Pen(penColor, 2);
+                figure.Pen = pen;
+                isClicked = true;
+                X = new Point(e.X, e.Y);
             }
-            else
+        }
+
+
+        private void PictureBox_MouseUp(object sender, MouseEventArgs e)
+        {
+            isClicked = false;
+            if (figure != null)
             {
-                MessageBox.Show("Выберите фигуру!", "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                objectsList.myList.Add(figure);
+            }
+        }
+
+        private void PictureBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isClicked)
+            {
+                Y = new Point(e.X, e.Y);
+                PictureBox.Invalidate();
+            }
+        }
+
+        public void PictureBox_Paint(object sender, PaintEventArgs e)
+        {
+            if (figure != null)
+            {
+                figure.StartPoint = X;
+                figure.FinishPoint = Y;
+                if (selectedColor == null)
+                {
+                    selectedColor = "Gray";
+                }
+                penColor = Color.FromName(selectedColor);
+                pen = new Pen(penColor, 2);
+                figure.Draw(e.Graphics, figure.Pen, figure.StartPoint, figure.FinishPoint);
+                if (objectsList.myList.Count > 0)
+                {
+                    foreach (var fig in objectsList.myList)
+                    {
+                        fig.Draw(e.Graphics, fig.Pen, fig.StartPoint, fig.FinishPoint);
+                    }
+                }
             }
         }
 
         private void rb_square_CheckedChanged(object sender, EventArgs e)
         {
-            maker = new SquareFabric();
+            figureCreator = new SquareFabric();
         }
 
         private void rb_reactangle_CheckedChanged(object sender, EventArgs e)
         {
-            maker = new RectangleFabric();
+            figureCreator = new RectangleFabric();
         }
 
         private void rb_ellipse_CheckedChanged(object sender, EventArgs e)
         {
-            maker = new EllipseFabric();
+            figureCreator = new EllipseFabric();
         }
 
         private void rb_circle_CheckedChanged(object sender, EventArgs e)
         {
-            maker = new CircleFabric();
+            figureCreator = new CircleFabric();
         }
 
         private void rb_line_CheckedChanged(object sender, EventArgs e)
         {
-            maker = new LineFabric();
+            figureCreator = new LineFabric();
         }
 
         private void listbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.selectedColor = listbx.SelectedItem.ToString();
+        }
+
+        private void ClearAllButton_Click(object sender, EventArgs e)
+        {
+            graphics.Clear(Color.White);
+            PictureBox.Image = null;
         }
     }
 }

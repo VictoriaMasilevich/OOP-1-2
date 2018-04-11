@@ -8,19 +8,13 @@ using System.Windows.Forms;
 
 namespace Geometry
 {
-    class Ellipse : MyDraw
+    class Ellipse : Figure
     {
-        private Point topLeft, bottomRight;
-
-        public Ellipse(float fatness, Color color, Point topLeft, Point bottomRight) : base(fatness, color)
+        public override void Draw(Graphics g, Pen pen, Point StartPoint, Point FinishPoint)
         {
-            this.topLeft = topLeft;
-            this.bottomRight = bottomRight;
-        }
-
-        public override void Draw(Graphics graphics)
-        {
-            graphics.DrawEllipse(pen, topLeft.X, topLeft.Y, bottomRight.X - topLeft.X, bottomRight.Y - topLeft.Y);
+            int Height = FinishPoint.Y - StartPoint.Y;
+            int Width = FinishPoint.X - StartPoint.X;
+            g.DrawEllipse(pen, StartPoint.X, StartPoint.Y, Width, Height);
         }
     }
 }

@@ -8,20 +8,19 @@ using System.Windows.Forms;
 
 namespace Geometry
 {
-    class Circle : MyDraw
+    class Circle : Figure
     {
-        private int radius;
-        private Point topLeft;
-
-        public Circle(float fatness, Color color, Point topLeft, Point bottomRight) : base(fatness, color)
+        public override void Draw(Graphics g, Pen pen, Point StartPoint, Point FinishPoint)
         {
-            this.topLeft = topLeft;
-            radius = bottomRight.X - topLeft.X;
-        }
-
-        public override void Draw(Graphics graphics)
-        {
-            graphics.DrawEllipse(pen, topLeft.X, topLeft.Y, radius, radius);
+            int Width = FinishPoint.X - StartPoint.X;
+            if (((Width > 0) && (FinishPoint.Y < StartPoint.Y)) || ((Width < 0) && (FinishPoint.Y > StartPoint.Y)))
+            {
+                g.DrawEllipse(pen, StartPoint.X, StartPoint.Y, Width, -Width);
+            }
+            else
+            {
+                g.DrawEllipse(pen, StartPoint.X, StartPoint.Y, Width, Width);
+            }
         }
     }
 }

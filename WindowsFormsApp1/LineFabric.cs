@@ -9,9 +9,9 @@ namespace Geometry
 {
     class LineFabric : Fabric
     {
-        public override MyDraw FactoryMethod(float fatness, Color color, Point upperLeft, Point lowerRight)
+        public override Figure Create()
         {
-            return new Line(fatness, color, upperLeft, lowerRight);
+            return new Line();
         }
     }
 }

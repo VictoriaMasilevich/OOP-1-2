@@ -8,21 +8,11 @@ using System.Windows.Forms;
 
 namespace Geometry
 {
-    class Line : MyDraw
+    class Line : Figure
     {
-        private int x1, y1, x2, y2;
-
-        public Line(float fatness, Color color, Point topLeft, Point bottomRight) : base(fatness, color)
+        public override void Draw(Graphics g, Pen pen, Point StartPoint, Point FinishPoint)
         {
-            this.x1 = topLeft.X;
-            this.y1 = topLeft.Y;
-            this.x2 = bottomRight.X;
-            this.y2 = bottomRight.Y;
-        }
-
-        public override void Draw(Graphics graphics)
-        {
-            graphics.DrawLine(pen, x1, y1, x2, y2);
+            g.DrawLine(pen, StartPoint, FinishPoint);
         }
     }
 }

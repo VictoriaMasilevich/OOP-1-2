@@ -9,9 +9,9 @@ namespace Geometry
 {
     class RectangleFabric : Fabric
     {
-        public override MyDraw FactoryMethod(float fatness, Color color, Point upperLeft, Point lowerRight)
+        public override Figure Create()
         {
-            return new Rectangle(fatness, color, upperLeft, lowerRight);
+            return new Rectangle();
         }
     }
 }

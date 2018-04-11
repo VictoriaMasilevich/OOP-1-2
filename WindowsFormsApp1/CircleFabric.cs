@@ -9,9 +9,9 @@ namespace Geometry
 {
     class CircleFabric : Fabric
     {
-        public override MyDraw FactoryMethod(float fatness, Color color, Point upperLeft, Point lowerRight)
+        public override Figure Create()
         {
-            return new Circle(fatness, color, upperLeft, lowerRight);
+            return new Circle();
         }
     }
 }

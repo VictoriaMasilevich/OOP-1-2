@@ -9,9 +9,9 @@ namespace Geometry
 {
     class SquareFabric : Fabric
     {
-        public override MyDraw FactoryMethod(float fatness, Color color, Point upperLeft, Point lowerRight)
+        public override Figure Create()
         {
-            return new Square(fatness, color, upperLeft, lowerRight);
+            return new Square();
         }
     }
 }

@@ -1,29 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.Windows.Forms;
 
 namespace Geometry
 {
-    class ObjectsList
+    public class ObjectsList
     {
-        private List<MyDraw> myList = new List<MyDraw>();
-        public ObjectsList()
+        public List<Figure> myList = new List<Figure> { };
+        Pen pen = new Pen(Color.RosyBrown, 3);
+        int y1 = 10;
+        int y2 = 50;
+
+        public void Draw(Graphics g)
         {
-            this.myList = new List<MyDraw>();
-        }
-        public void Add(MyDraw myDraw)
-        {
-            myList.Add(myDraw);
-        }
-        public void Draw(Graphics graphics)
-        {
-            foreach (MyDraw myDraw in myList)
+            foreach (Figure myDraw in myList)
             {
-                myDraw.Draw(graphics);
+                myDraw.Draw(g, pen, new Point(20, y1), new Point(80, y2));
+                y1 += 70;
+                y2 += 70;
             }
         }
     }

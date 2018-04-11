@@ -10,19 +10,31 @@ using System.Drawing;
 
 namespace Geometry
 {
-    class Square : MyDraw
+    class Square : Figure
     {
-        private Point topLeft;
-        private int sidelength;
-        public Square (float fatness, Color color, Point topLeft, Point bottomRight) : base(fatness, color)
+        public override void Draw(Graphics g, Pen pen, Point StartPoint, Point FinishPoint)
         {
-            this.topLeft = topLeft;
-            this.sidelength = bottomRight.X - topLeft.X;
-        }
+            int Width = Math.Abs(FinishPoint.X - StartPoint.X);
 
-        public override void Draw(Graphics graphics)
-        {
-            graphics.DrawRectangle(pen, topLeft.X, topLeft.Y, sidelength, sidelength);
+            if ((FinishPoint.Y < StartPoint.Y) && (FinishPoint.X < StartPoint.X))
+            {
+                StartPoint = new Point(FinishPoint.X, StartPoint.Y - Width);
+            }
+            else
+            {
+                if ((FinishPoint.Y < StartPoint.Y) && (FinishPoint.X > StartPoint.X))
+                {
+                    StartPoint = new Point(StartPoint.X, StartPoint.Y - Width);
+                }
+                else
+                {
+                    if (FinishPoint.X < StartPoint.X)
+                    {
+                        StartPoint = new Point(FinishPoint.X, StartPoint.Y);
+                    }
+                }
+            }
+            g.DrawRectangle(pen, StartPoint.X, StartPoint.Y, Width, Width);
         }
     }
 }

@@ -8,19 +8,21 @@ using System.Windows.Forms;
 
 namespace Geometry
 {
-    class Rectangle : MyDraw
+    class Rectangle : Figure
     {
-        private Point topLeft, bottomRight;
-
-        public Rectangle(float fatness, Color color, Point topLeft, Point bottomRight) : base(fatness, color)
+        public override void Draw(Graphics g, Pen pen, Point StartPoint, Point FinishPoint)
         {
-            this.topLeft = topLeft;
-            this.bottomRight = bottomRight;
-        }
-
-        public override void Draw(Graphics graphics)
-        {
-            graphics.DrawRectangle(pen, topLeft.X, topLeft.Y, bottomRight.X - topLeft.X, bottomRight.Y - topLeft.Y);
+            int Height = Math.Abs(FinishPoint.Y - StartPoint.Y);
+            int Width = Math.Abs(FinishPoint.X - StartPoint.X);
+            if (FinishPoint.Y < StartPoint.Y)
+            {
+                StartPoint = new Point(StartPoint.X, FinishPoint.Y);
+            }
+            if (FinishPoint.X < StartPoint.X)
+            {
+                StartPoint = new Point(FinishPoint.X, StartPoint.Y);
+            }
+            g.DrawRectangle(pen, StartPoint.X, StartPoint.Y, Width, Height);
         }
     }
 }

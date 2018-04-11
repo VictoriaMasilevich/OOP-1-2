@@ -32,8 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,15 +46,15 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CircleFabric.cs" />
     <Compile Include="EllipseFabric.cs" />
     <Compile Include="Fabric.cs" />
     <Compile Include="Figures\Circle.cs" />
-    <Compile Include="Figures\Curve.cs" />
     <Compile Include="Figures\Ellipse.cs" />
-    <Compile Include="Figures\MyDraw.cs" />
+    <Compile Include="Figures\Figure.cs" />
     <Compile Include="Figures\Line.cs" />
     <Compile Include="LineFabric.cs" />
     <Compile Include="MainForm.cs">
