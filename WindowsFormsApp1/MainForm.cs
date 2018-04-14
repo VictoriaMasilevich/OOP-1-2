@@ -48,13 +48,6 @@ namespace Geometry
 
         public bool isClicked = false;
 
-        public struct MenuItemInfo
-        {
-            public string figureName;
-            public string creatorType;
-            public Fabric FigureCreator;
-        }
-
         Point X;
         Point Y;
         Figure figure;
@@ -152,6 +145,14 @@ namespace Geometry
         {
             graphics.Clear(Color.White);
             PictureBox.Image = null;
+            Pen pen = new Pen(Color.White);
+            if (objectsList.myList.Count > 0)
+            {
+                foreach (var fig in objectsList.myList)
+                {
+                    fig.Draw(graphics, pen, fig.StartPoint, fig.FinishPoint);
+                }
+            }
         }
     }
 }

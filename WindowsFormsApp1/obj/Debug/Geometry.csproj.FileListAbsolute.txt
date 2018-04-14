@@ -17,3 +17,13 @@ C:\Users\Admin\Desktop\Geometry\WindowsFormsApp1\obj\Debug\Geometry.csproj.Gener
 C:\Users\Admin\Desktop\Geometry\WindowsFormsApp1\obj\Debug\Geometry.csproj.CoreCompileInputs.cache
 C:\Users\Admin\Desktop\Geometry\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Admin\Desktop\Geometry\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Admin\Desktop\ооп 1,2\Geometry\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Admin\Desktop\ооп 1,2\Geometry\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Admin\Desktop\ооп 1,2\Geometry\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Admin\Desktop\ооп 1,2\Geometry\WindowsFormsApp1\obj\Debug\Geometry.csprojResolveAssemblyReference.cache
+C:\Users\Admin\Desktop\ооп 1,2\Geometry\WindowsFormsApp1\obj\Debug\Geometry.MainForm.resources
+C:\Users\Admin\Desktop\ооп 1,2\Geometry\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Admin\Desktop\ооп 1,2\Geometry\WindowsFormsApp1\obj\Debug\Geometry.csproj.GenerateResource.Cache
+C:\Users\Admin\Desktop\ооп 1,2\Geometry\WindowsFormsApp1\obj\Debug\Geometry.csproj.CoreCompileInputs.cache
+C:\Users\Admin\Desktop\ооп 1,2\Geometry\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Admin\Desktop\ооп 1,2\Geometry\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
